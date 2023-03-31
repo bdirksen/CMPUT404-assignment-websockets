@@ -78,6 +78,21 @@ function drawCircle(context,entity) {
         beginPath();
         arc(x, y + mouthOffset, mouthRadius, Math.PI, 2 * Math.PI, false);
         stroke();
+        // draw horns 
+        // right
+        beginPath();
+        moveTo(x - radius * 0.5, y - radius * 0.9);
+        lineTo(x - radius * 0.8, y - radius * 1.2);
+        lineTo(x - radius * 0.8, y - radius * 0.5);
+        fill();
+        stroke();
+        // left
+        beginPath();
+        moveTo(x + radius * 0.5, y - radius * 0.9);
+        lineTo(x + radius * 0.8, y - radius * 1.2);
+        lineTo(x + radius * 0.8, y - radius * 0.5);
+        fill();
+        stroke();
     }
 }
 
