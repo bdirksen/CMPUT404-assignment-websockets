@@ -51,11 +51,33 @@ function drawCircle(context,entity) {
         lineWidth = 3;
         var x = entity["x"];
         var y = entity["y"];
-        //moveTo(x,y);
+        var radius = (entity["radius"])?entity["radius"]:50;
+        var eyeRadius = radius * 0.2;
+        var mouthRadius = radius * 0.5;
+        var mouthOffset = radius * 0.5;
+        // Draw the circle
         fillStyle = entity["colour"];
         strokeStyle = fillStyle;
-        arc(x, y, (entity["radius"])?entity["radius"]:50, 0, 2.0 * Math.PI, false);  
-        stroke();                                
+        arc(x, y, radius, 0, 2.0 * Math.PI, false);
+        fill();
+        stroke();
+        // Draw the eyes
+        fillStyle = "#000";
+        fill();
+        beginPath();
+        // Draw the right eye
+        arc(x + radius * 0.3, y - radius * 0.3, eyeRadius, 0, 2.0 * Math.PI, false);
+        fill();
+        stroke();
+        // Draw the left eye
+        beginPath();
+        arc(x - radius * 0.3, y - radius * 0.3, eyeRadius, 0, 2.0 * Math.PI, false);
+        fill();
+        stroke(); 
+        // Draw the mouth
+        beginPath();
+        arc(x, y + mouthOffset, mouthRadius, Math.PI, 2 * Math.PI, false);
+        stroke();
     }
 }
 
